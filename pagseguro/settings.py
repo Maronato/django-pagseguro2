@@ -12,12 +12,14 @@ if PAGSEGURO_SANDBOX:
     PAYMENT_URL = 'https://sandbox.pagseguro.uol.com.br/v2/checkout/payment.html'
     NOTIFICATION_URL = 'https://ws.sandbox.pagseguro.uol.com.br/v2/transactions/notifications'
     TRANSACTION_URL = 'https://ws.sandbox.pagseguro.uol.com.br/v2/transactions'
+    REFUND_URL = 'https://ws.sandbox.pagseguro.uol.com.br/v2/transactions/refunds'
     SESSION_URL = 'https://ws.sandbox.pagseguro.uol.com.br/v2/sessions/'
 else:
     CHECKOUT_URL = 'https://ws.pagseguro.uol.com.br/v2/checkout'
     PAYMENT_URL = 'https://pagseguro.uol.com.br/v2/checkout/payment.html'
     NOTIFICATION_URL = 'https://ws.pagseguro.uol.com.br/v2/transactions/notifications'
     TRANSACTION_URL = 'https://ws.pagseguro.uol.com.br/v2/transactions'
+    REFUND_URL = 'https://ws.pagseguro.uol.com.br/v2/transactions/refunds'
     SESSION_URL = 'https://ws.pagseguro.uol.com.br/v2/sessions/'
 
 TRANSACTION_STATUS = {

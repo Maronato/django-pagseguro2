@@ -211,6 +211,41 @@ class PagSeguroApi(object):
         )
         return data
 
+    def refund_transaction(self, transaction_id):
+        response = requests.post(
+            self.refund_url + '/',
+            params={
+                'email': self.base_params['email'],
+                'token': self.base_params['token'],
+                'transactionCode': transaction_id
+            }
+        )
+
+        if response.status_code == 200:
+
+            data = {
+                'status_code': response.status_code,
+                'success': True,
+                'date': timezone.now()
+            }
+        else:
+            data = {
+                'status_code': response.status_code,
+                'message': response.text,
+                'success': False,
+                'date': timezone.now()
+            }
+
+        logger.debug(
+            'operation=api_refund_transaction, '
+            'transaction_id={}, '
+            'data={!r}, '
+            'response_status={}'.format(
+                transaction_id, data, response.status_code
+            )
+        )
+        return data
+
 
 class PagSeguroApiTransparent(PagSeguroApi):
     def __init__(self, session_url=None, **kwargs):
